@@ -10,10 +10,10 @@
 #include <CommonCrypto/CommonHMAC.h>
 #import "base64.h"
 
-static NSString *judgeBindStatusUrl =       @"http://pre-server.biteye.info:10005/open/api/v1/sdk/checkBind";
-static NSString *getGamesAllNFTsURL =       @"http://pre-server.biteye.info:10005/open/api/v1/sdk/NFT/list";
-static NSString *getPlayersAllNFTsURL =     @"http://pre-server.biteye.info:10005/open/api/v1/sdk/NFT/player/list";
-static NSString *getNFTURL =                @"http://pre-server.biteye.info:10005/open/api/v1/sdk/NFT/token";
+static NSString *judgeBindStatusUrl =       @"https://api.planckx.io/open/api/sdk/checkBind";
+static NSString *getGamesAllNFTsURL =       @"https://api.planckx.io/open/api/sdk/NFT/list";
+static NSString *getPlayersAllNFTsURL =     @"https://api.planckx.io/open/api/sdk/NFT/player/list";
+static NSString *getNFTURL =                @"https://api.planckx.io/open/api/sdk/NFT/token";
 
 static SWPlanckXManager *manager = nil;
 
