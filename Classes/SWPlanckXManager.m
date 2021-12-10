@@ -120,10 +120,10 @@ static SWPlanckXManager *manager = nil;
     
     NSURLSessionTask *task = [session dataTaskWithRequest:request
                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@"%@", urlStr);
+//        NSLog(@"%@", urlStr);
         if (data && data.length > 0) {
             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-            NSLog(@"%@", dict);
+//            NSLog(@"%@", dict);
             if (completeBlock) {
                 completeBlock(dict);
             }
@@ -140,9 +140,9 @@ static SWPlanckXManager *manager = nil;
 }
 
 - (NSString *)hmacsha1:(NSString *)text key:(NSString *)secret {
-    NSLog(@"hmacsha1 started");
-    NSLog(@"original value: %@", text);
-    NSLog(@"secret: %@", secret);
+//    NSLog(@"hmacsha1 started");
+//    NSLog(@"original value: %@", text);
+//    NSLog(@"secret: %@", secret);
     NSData *secretData = [secret dataUsingEncoding:NSUTF8StringEncoding];
     NSData *clearTextData = [text dataUsingEncoding:NSUTF8StringEncoding];
     unsigned char result[20];
@@ -152,7 +152,7 @@ static SWPlanckXManager *manager = nil;
     Base64EncodeData(result, 20, base64Result, &theResultLength,YES);
     NSData *theData = [NSData dataWithBytes:base64Result length:theResultLength];
     NSString *base64EncodedResult = [[NSString alloc] initWithData:theData encoding:NSASCIIStringEncoding];
-    NSLog(@"result value: %@", base64EncodedResult);
+//    NSLog(@"result value: %@", base64EncodedResult);
     return base64EncodedResult;
 }
 
