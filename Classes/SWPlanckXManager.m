@@ -102,7 +102,11 @@ static SWPlanckXManager *manager = nil;
     }];
     NSString *sortedHeaderKeyValueStr = [NSString string];
     for (NSString *key in sortedHeaderKeys) {
-        sortedHeaderKeyValueStr = [sortedHeaderKeyValueStr stringByAppendingFormat:@"%@=%@&", key, headerPara[key]];
+        if (key == sortedHeaderKeys.firstObject) {
+            sortedHeaderKeyValueStr = [sortedHeaderKeyValueStr stringByAppendingFormat:@"%@=%@", key, headerPara[key]];
+        } else {
+            sortedHeaderKeyValueStr = [sortedHeaderKeyValueStr stringByAppendingFormat:@"&%@=%@", key, headerPara[key]];
+        }
     }
     NSString *sign = [self hmacsha1:sortedHeaderKeyValueStr key:self.secreKey];
     NSMutableDictionary *headerDic = [NSMutableDictionary dictionaryWithDictionary:headerPara];
